@@ -1,11 +1,30 @@
 # HotelReservation microservices and distributed cloud Blueprint
 There are a plenty of examples of different of microservices that utilize .Net Core as platform as domain designs. The one comes to mind is documented quite well by Microsoft EShopContainers Microfrontend blueprints.
-For Python, there a quite few Git examples utilizing Fast API as a library but a scarcity of a business domain examples.  The one notable exception, is a book by Harry Percival and Bob Gregoory  -  **Architecture Patterns with Python** that covers pretty well an example of microfrontends and microservices while utilizing Flask API.  This manuscript have provided an inspiration for a creation of a fictional Hotel Reservation microservices application that utilizes Fast Api in the Azure's Kubernettes Service (AKS) and Amazon Elastic Kubernetes Service (EKS).  The services use CQRS pattern as well.   The one wrinkle that hasn't been explored before in Python implementations is a concept of tying  together a Middleware Pattern, Event Sourcing and a Circuit Breaker patten for peer-to-peer distributed communication. The usual and a customary approach is to utilize either Kafka or Red Pandas for publisher-subscriber message queues.   But the message queue itself becomes a single point of failure.  The cloud standards groups this author was part of eschewed Kafka and relied on Event Bus or Event Hub in Azure instead due to Kafka's complexity of having to maintain ZooKeeper.  This repo will explore ideas base on Saga choreoagraphy pattern and peer-to-peer microservices.  The design will utilize archival of event stores in any cloud based blob storage provider or structured database like PostgreSQL.  Some of these ideas are based on the BFF pattern previoulsy used in authors work.  The BFF API gateway pattern is used to simplify UI frontends communication to the backend APIs.
+Here’s a revised version of the text with improved structure and flow:
 
-This pattern provides a modern pipeline approach for execution of different type of http commands/querries and is used to provide added scalability when the applicaiton is deployed to Azure AKS or any other containerized eco-systems.
+---
 
-Reference: https://microservices.io/patterns/data/saga.html and https://github.com/eventuate-tram/eventuate-tram-core
+There are numerous examples of microservices utilizing .NET Core as a platform for implementing domain-driven designs. A well-documented example is Microsoft's **eShopOnContainers**, which provides detailed blueprints for microservices and microfrontends.  
 
+In contrast, Python has fewer comprehensive examples of microservices that demonstrate business domain applications. While there are several GitHub repositories showcasing FastAPI as a library for microservices, detailed domain-specific examples are scarce. One notable exception is the book *Architecture Patterns with Python* by Harry Percival and Bob Gregory. This book effectively demonstrates the use of Flask API in creating microservices and microfrontends, offering valuable insights into architecture patterns.  
+
+Drawing inspiration from this manuscript, a fictional **Hotel Reservation** microservices application was developed, utilizing FastAPI within **Azure Kubernetes Service (AKS)** and **Amazon Elastic Kubernetes Service (EKS)**. This system employs the **CQRS (Command Query Responsibility Segregation)** pattern. However, an unexplored area in Python implementations is the integration of the **Middleware Pattern**, **Event Sourcing**, and the **Circuit Breaker Pattern** for peer-to-peer distributed communication.  
+
+The conventional approach for messaging queues in microservices often relies on systems like Kafka or Redpanda for publisher-subscriber patterns. However, these systems can become single points of failure. In response to these limitations, cloud standards groups (including those this author has contributed to) have favored **Azure Event Bus** or **Event Hub** over Kafka, primarily to avoid the complexity of maintaining ZooKeeper.  
+
+This repository explores ideas based on the **Saga choreography pattern** for managing distributed transactions, paired with peer-to-peer microservices. The design incorporates archival of event stores in cloud-based blob storage providers or structured databases like PostgreSQL. Several of these concepts draw upon the **Backend for Frontend (BFF)** pattern, previously employed in the author's work.  
+
+The BFF API gateway pattern simplifies the communication between UI frontends and backend APIs. It enables a modern pipeline for executing various HTTP commands and queries, enhancing scalability when deployed to Azure AKS or other containerized ecosystems.  
+
+This exploration aims to provide a practical and modern approach to microservices architecture while addressing limitations in existing Python implementations.  
+
+**References:**  
+- [Saga Pattern Overview](https://microservices.io/patterns/data/saga.html)  
+- [Eventuate Tram Core Repository](https://github.com/eventuate-tram/eventuate-tram-core)
+
+--- 
+
+This revised version improves readability, structure, and coherence while retaining all critical details.
 
 ## Scope for the project
 *  Develop distributed mico-services for managing hotel reservations, check-ins, upgrades and potential machine learning integration for seasonal predictions.
